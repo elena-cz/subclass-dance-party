@@ -32,7 +32,12 @@ body, a:link, a:visited, a:active{
   width: 30px;
 }
 .expandy-dancer {
-  background-color: yellow;
-  height: 30px;
-  width: 30px;
+  border:30px solid red;
+  border-radius:30px;
+  transform: translate(-20px, -20px);
+}
+
+.moving-dancer {
+  border:50px solid yellow;
+  border-radius:50px;
 }

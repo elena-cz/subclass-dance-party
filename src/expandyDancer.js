@@ -10,6 +10,5 @@ ExpandyDancer.prototype.oldStep = Dancer.prototype.step;
 ExpandyDancer.prototype.step = function() {
   this.oldStep();
   this.$node.toggleClass('expandy-dancer');
-  // increase size x%
   
 };
