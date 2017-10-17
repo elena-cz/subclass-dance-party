@@ -3,6 +3,7 @@ $(document).ready(function() {
   
   window.height = $('body').height();
   window.width = $('body').width();
+  window.linedUp = false;
 
   $('.addDancerButton').on('click', function(event) {
     /* This function sets up the click handlers for the create-dancer
@@ -28,9 +29,31 @@ $(document).ready(function() {
     var dancer = new dancerMakerFunction(
       $('body').height() * Math.random(),
       $('body').width() * Math.random(),
-      Math.random() * 1000
+      Math.max(Math.random() * 1000, 200)
     );
     $('body').append(dancer.$node);
+    dancers.push(dancer);
+  });
+  
+  $('.lineUpButton').on('click', function(event) {
+    var spacing = (width - 40) / dancers.length;
+    if (linedUp === false) {
+      console.log('in function to lineup', dancers.length);
+      for (var i = 0; i < dancers.length; i++) {
+        dancers[i].left = 20 + (spacing * i);
+        dancers[i].top = height / 2;
+        dancers[i].setPosition();
+      }
+      linedUp = true;
+    } else {
+      console.log('in function to un-lineup', dancers.length);
+      for (var i = 0; i < dancers.length; i++) {
+        dancers[i].left = width * Math.random();
+        dancers[i].top = height * Math.random();
+        dancers[i].setPosition();
+      }
+      linedUp = false;
+    }
   });
 });
 

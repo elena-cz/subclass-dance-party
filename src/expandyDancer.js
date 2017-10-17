@@ -12,3 +12,22 @@ ExpandyDancer.prototype.step = function() {
   this.$node.toggleClass('expandy-dancer');
   
 };
+
+/* Expandy.prototype.lineUp = function() {
+  if (this.left > width / 2) {
+    // migrate left
+  } else if (this.left < width / 2) {
+    // migrate right
+  }
+};
+
+Expandy.prototype.migrateRight = function() {
+  this.left++;
+  setPosition();
+};
+
+Expandy.prototype.migrateLeft = function() {
+  this.left--;
+  setPosition();
+};
+*/
