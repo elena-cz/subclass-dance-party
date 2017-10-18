@@ -12,7 +12,8 @@ Dog.prototype.oldStep = Dancer.prototype.step;
 Dog.prototype.step = function() {
   
   this.oldStep();
-  this.$node.toggle();
+  this.$node.animate({top: '+8'});
+  this.$node.animate({top: '-8'});
   
 };
 
