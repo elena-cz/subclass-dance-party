@@ -1,6 +1,7 @@
 var Dog = function(top, left, timeBetweenSteps) {
   Dancer.call(this, top, left, timeBetweenSteps);
   this.$node.addClass('dog');
+  this.up = false;
   
 };
 
@@ -12,8 +13,15 @@ Dog.prototype.oldStep = Dancer.prototype.step;
 Dog.prototype.step = function() {
   
   this.oldStep();
-  this.$node.animate({top: '+8'});
-  this.$node.animate({top: '-8'});
+  if (!this.up) {
+    this.top = this.top + 10;
+    this.up = true;
+  } else {
+    this.top = this.top - 10;
+    this.up = false;
+  }
+  this.setPosition();
+  //this.$node.animate({top: '-=8px'});
   
 };
 
