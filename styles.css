@@ -2,42 +2,146 @@ body, html{
   height:100%;
 }
 body{
-  margin: 0px;
-  background-color:#444;
-  font-size: 18px;
+  font-size: 30px;
+  background-image: url('assets/LighterGreenConstructionPaper.png');
+  background-repeat: repeat;
+  font-family: 'Caveat', cursive;
+  z-index: 1;
 }
-body, a:link, a:visited, a:active{
-  color: lightblue;
-}
-.title, .addDancerButton{
-  padding:5px 12px;
-  float:right;
-}
-.topbar{
-  height:32px;
-  background-color: #555;
-}
-.title{
-  background-color: #777;
-}
-.dancer{
-  border:10px solid red; 
-  border-radius:10px;
-  position:absolute;
-}
-.blinky-dancer {
-  border: none;
-  background-color: blue;
-  height: 30px;
-  width: 30px;
-}
-.expandy-dancer {
-  border:30px solid red;
-  border-radius:30px;
-  transform: translate(-20px, -20px);
+h1 {
+  font-size: 40px;
+  padding: 10px;
+  width: 30%;
+  margin: 20px auto;
+  z-index: 5;
+  background-image: url('assets/YellowConstructionPaper.png');
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-.moving-dancer {
-  border:50px solid yellow;
-  border-radius:50px;
+footer{
+  height: 150px;
+  width: 100%;
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+  background-image: url('assets/GreenConstructionPaperGrass.png');
+  z-index: 2;
+  background-position: left bottom;
+  background-repeat: repeat-x;
+  background-attachment: fixed;
+}
+
+/** Buttons **/
+
+.buttons {
+  position: absolute;
+  right: 0px;
+  bottom: 0px;
+  width: 100%;
+}
+
+
+.addDancerButton {
+  background-image: url('assets/YellowConstructionPaper.png');
+  float: right;
+  font-size: 30px;
+  border-radius: 5px;
+  padding: 5px 10px;
+  margin: auto 20px 20px 20px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.lineUpButton {
+  background-image: url('assets/BlueConstructionPaper.png');
+  float: left;
+  font-size: 30px;
+  border-radius: 5px;
+  padding: 5px 10px;
+  margin: auto 20px 20px 20px;
+  position: absolute;
+  left: 0px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/*** Dancing animals *****/
+
+.dancer{
+  position:absolute;
+  z-index: 1;
+}
+.dog {
+  border: none;
+  height: 150px;
+  width: 200px;
+  background-image: url('assets/dog_200.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.snake-giraffe {
+  border: none;
+  width: 100px;
+  height: 200px;
+  background-image: url('assets/snakegiraffe_200.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.snake-giraffe-expanded {
+  border: none;
+  width: 150px;
+  height: 300px;
+  transform: translate(-25px, -50px);
+  background-image: url('assets/snakegiraffe_200.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.horse {
+  width: 400px;
+  height: 200px;
+  background-image: url('assets/horse_350.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.horse-right{
+  transform: scaleX(-1);
+}
+
+.shark {
+  width: 300px;
+  height: 150px;
+  background-image: url('assets/Shark_300.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.penguin {
+  width: 100px;
+  height: 200px;
+  background-image: url('assets/Penguin_150.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  transform: rotate(-7deg);
+}
+
+.penguin-wiggle {
+  transform: rotate(7deg);
+}
+
+.rotate-right {
+  transform: rotate(30deg);
+}
+.rotate-left {
+  transform: rotate(-30deg);
 }

@@ -1,22 +1,24 @@
-var MovingDancer = function(top, left, timeBetweenSteps) {
-  Dancer.call(this, top, left, timeBetweenSteps);
-  this.$node.addClass('moving-dancer');
+var Horse = function(top, left, timeBetweenSteps) {
+  Dancer.call(this, top, left, timeBetweenSteps / 3);
+  this.$node.addClass('horse horse-right');
   this.isMovingRight = true;
   this.hoppingSpot = 0; // range from 0 - 4
   
 };
 
-MovingDancer.prototype = Object.create(Dancer.prototype);
-MovingDancer.prototype.constructor = MovingDancer;
+Horse.prototype = Object.create(Dancer.prototype);
+Horse.prototype.constructor = Horse;
 
-MovingDancer.prototype.oldStep = Dancer.prototype.step;
+Horse.prototype.oldStep = Dancer.prototype.step;
 
-MovingDancer.prototype.step = function() {
+Horse.prototype.step = function() {
   this.oldStep();
-  
+
   if (this.left <= width && this.isMovingRight) {
+    this.$node.addClass('horse-right');
     this.moveRight();  
   } else {
+    this.$node.removeClass('horse-right');
     this.moveLeft();
   }
   
@@ -28,7 +30,7 @@ MovingDancer.prototype.step = function() {
   }
 };
 
-MovingDancer.prototype.moveRight = function() {
+Horse.prototype.moveRight = function() {
   var r = 60;
   switch (this.hoppingSpot) {
     case 0:
@@ -60,7 +62,7 @@ MovingDancer.prototype.moveRight = function() {
   // this.setPosition();
 };
 
-MovingDancer.prototype.moveLeft = function() {
+Horse.prototype.moveLeft = function() {
   var r = 60;
   switch (this.hoppingSpot) {
     case 0:

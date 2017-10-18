@@ -1,15 +1,15 @@
-var ExpandyDancer = function(top, left, timeBetweenSteps) {
+var SnakeGiraffe = function(top, left, timeBetweenSteps) {
   Dancer.call(this, top, left, timeBetweenSteps);
-  
+  this.$node.addClass('snake-giraffe');
 };
 
-ExpandyDancer.prototype = Object.create(Dancer.prototype);
-ExpandyDancer.prototype.constructor = ExpandyDancer;
-ExpandyDancer.prototype.oldStep = Dancer.prototype.step;
+SnakeGiraffe.prototype = Object.create(Dancer.prototype);
+SnakeGiraffe.prototype.constructor = SnakeGiraffe;
+SnakeGiraffe.prototype.oldStep = Dancer.prototype.step;
 
-ExpandyDancer.prototype.step = function() {
+SnakeGiraffe.prototype.step = function() {
   this.oldStep();
-  this.$node.toggleClass('expandy-dancer');
+  this.$node.toggleClass('snake-giraffe-expanded');
   
 };
 

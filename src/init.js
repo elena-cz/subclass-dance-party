@@ -56,6 +56,37 @@ $(document).ready(function() {
     }
   });
   
+  
+  var isClose = function (x1, y1, x2, y2) {
+    var hypotenuse = Math.sqrt(Math.pow(y2 - y1, 2) + Math.pow(x2 - x1, 2));
+    if (hypotenuse < 100) {
+      return true;
+    }
+    return false;
+  };
+  
+  var shake = function(dancer) {
+    dancer.$node.animate({deg: '-120'});
+    dancer.$node.animate({deg: '-120'});
+    //dancer.$node.animate({transform: rotate(60deg)});
+    //dancer.$node.animate({transform: rotate(-30deg)});
+    
+  };
+
+  var checkProximity = function () {
+    for (var i = 0; i < dancers.length; i++) {
+      for (var j = 0; j < dancers.length; j++) {
+        if (dancers[i] !== dancers[j]) {
+          if (isClose(dancers[i].left, dancers[i].top, dancers[j].left, dancers[j].top)) {
+            console.log(dancers[i].$node);
+            shake(dancers[i]);
+            shake(dancers[j]);
+          }
+        }
+      }
+    }
+  };
+  
   var checkDancers = function () {
     checkProximity();
     setTimeout(checkDancers, 1000);
@@ -63,28 +94,8 @@ $(document).ready(function() {
   
   checkDancers();
   
-  function checkProximity() {
-    for (var i = 0; i < dancers.length; i++) {
-      for (var j = 0; j < dancers.length; j++) {
-        if (dancers[i] !== dancers[j]) {
-          if (isClose(dancers[i].left, dancers[i].top, dancers[j].left, dancers[j].top)) {
-            console.log(dancers[i].$node);
-            dancers[i].$node.animate({top: '+=20px'});
-            dancers[j].$node.animate({top: '+=20px'});
-          }
-        }
-      }
-    }
-  }
-  
-  function isClose(x1, y1, x2, y2) {
-    var hypotenuse = Math.sqrt(Math.pow(y2 - y1, 2) + Math.pow(x2 - x1, 2));
-    if (hypotenuse < 100) {
-      return true;
-    }
-    return false;
-  }
 });
+
 
 
 
