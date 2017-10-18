@@ -6,6 +6,9 @@ var Dancer = function(top, left, timeBetweenSteps) {
   
   
   this.$node = $('<span class="dancer"></span>');
+  this.$node.hover(function() {
+    this.$node.slideUp('fast');
+  }.bind(this));
   this.step();
   this.setPosition();
 };
